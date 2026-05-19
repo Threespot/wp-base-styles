@@ -1,0 +1,29 @@
+{
+  "name": "@threespot/wp-base-styles",
+  "version": "0.1.0",
+  "description": "Sass partials for default WordPress blocks and common styles used across Threespot WP projects.",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Threespot/wp-base-styles.git"
+  },
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "lint:css": "stylelint \"**/*.scss\"",
+    "lint:css:fix": "stylelint \"**/*.scss\" --fix",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.scss": "stylelint"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.2",
+    "postcss-scss": "^4.0.9",
+    "stylelint": "^17.11.0",
+    "stylelint-scss": "^7.1.1"
+  }
+}
