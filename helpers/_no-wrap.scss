@@ -1,0 +1,19 @@
+// Prevent text from wrapping
+// Used in conjunction with append_icon() in wp-base-config
+// https://github.com/Threespot/wp-base-config/blob/main/src/Helpers/svg.php
+.no-wrap {
+  @include min-width(320px) {
+    display: inline-block;// necessary for nested inline elements for some reason
+    text-decoration: inherit;// don’t break link styles
+    white-space: nowrap !important;
+
+    // Note: Safari requires resetting each individual property
+    @supports (text-decoration-color: #000) {
+      text-decoration-color: inherit;
+      text-decoration-line: inherit;
+      text-decoration-style: inherit;
+      text-decoration-thickness: inherit;
+      text-underline-offset: inherit;
+    }
+  }
+}

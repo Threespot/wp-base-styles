@@ -29,19 +29,23 @@ From a consumer's Sass entry point:
 @use '@threespot/wp-base-styles';
 
 // Or pick what you need
-@use '@threespot/wp-base-styles/blocks';
-@use '@threespot/wp-base-styles/utilities/visually-hidden';
+@use '@threespot/wp-base-styles/default-blocks';
+@use '@threespot/wp-base-styles/helpers/no-wrap';
+
+// Sass variables (Gutenberg breakpoints, admin sidebar dimensions)
+@use '@threespot/wp-base-styles/vars' as *;
 ```
 
 ## Structure
 
 ```
-base/         Element resets and defaults
-blocks/       Default WP core block styles
-utilities/    Reusable helper classes
+base/            Element defaults (fonts, etc.)
+default-blocks/  Default WP core block styles
+helpers/         Reusable helper classes
+vars/            Sass variables (Gutenberg breakpoints, admin sidebar)
 ```
 
-Each folder has an `_index.scss` that forwards its partials; the top-level `_index.scss` forwards all three.
+Each folder has an `_index.scss` that forwards its partials. The top-level `_index.scss` forwards `base`, `default-blocks`, and `helpers` — `vars/` is opt-in via explicit `@use` since it outputs no CSS.
 
 ## Develop
 
