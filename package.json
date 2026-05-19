@@ -12,8 +12,8 @@
     "node": ">=22.0.0"
   },
   "scripts": {
-    "lint:css": "stylelint \"**/*.scss\"",
-    "lint:css:fix": "stylelint \"**/*.scss\" --fix",
+    "lint:css": "NODE_NO_WARNINGS=1 stylelint \"**/*.scss\" && printf \"\\033[32m✓ No CSS lint errors\\033[0m\\n\"",
+    "lint:css:fix": "NODE_NO_WARNINGS=1 stylelint \"**/*.scss\" --fix && printf \"\\033[32m✓ CSS lint fixes applied\\033[0m\\n\"",
     "prepare": "husky"
   },
   "lint-staged": {
