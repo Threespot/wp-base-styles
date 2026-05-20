@@ -9,14 +9,6 @@
   font-family: var(--neue-haas-grotesk);
 }
 
-// Custom Gutenberg editor overrides
-.interface-interface-skeleton__content {
-  & > .edit-post-visual-editor {
-    background-color: var(--default-bg-color);
-    @include default-padding;
-  }
-}
-
 // Hide H1 button in heading block
 [aria-label="Heading 1"] {
   display: none !important;
