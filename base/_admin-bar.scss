@@ -1,0 +1,13 @@
+// WP admin bar overrides
+// These are applied on the front-end for logged-in users
+
+// Undo css reset styles to prevent icons from wrapping
+#wpadminbar .ab-item img {
+  display: inline !important;
+
+  // Pantheon HUD plugin icon
+  &[src*="/pantheon-hud/"] {
+    height: auto !important;
+    width: 26px !important;
+  }
+}

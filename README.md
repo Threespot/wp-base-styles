@@ -1,6 +1,6 @@
 # @threespot/wp-base-styles
 
-Common Sass partials used across Threespot WordPress projects.
+Common Sass partials and stylesheets used across Threespot WordPress projects.
 
 ## Install
 
@@ -22,13 +22,27 @@ Pin to a tag (immutable) or a semver range:
 
 ## Use
 
+The package ships four standalone entry points, each meant to be compiled into a stylesheet enqueued in a different WP context:
+
+| Entry point          | Where it's enqueued                                |
+| -------------------- | -------------------------------------------------- |
+| `main.scss`          | Front-end (vars + base + helpers)                  |
+| `gutenberg.scss`     | Block editor                                       |
+| `admin-all.scss`     | All admin pages                                    |
+| `admin-fields.scss`  | Admin pages with editable fields (ACF, TinyMCE)    |
+
 From a consumer's Sass entry point:
 
 ```scss
-// Forward everything
-@use '@threespot/wp-base-styles';
+// Front-end bundle
+@use '@threespot/wp-base-styles/main';
 
-// Or pick what you need
+// Or compile any of the context-specific entry points directly
+@use '@threespot/wp-base-styles/gutenberg';
+@use '@threespot/wp-base-styles/admin-all';
+@use '@threespot/wp-base-styles/admin-fields';
+
+// Pick individual partials
 @use '@threespot/wp-base-styles/base/fonts';
 
 // Sass variables (Gutenberg breakpoints, admin sidebar dimensions)
@@ -41,13 +55,18 @@ From a consumer's Sass entry point:
 ## Structure
 
 ```
-base/            Element defaults (fonts, etc.)
-helpers/         Utility classes (no-js, etc.)
-vars/            Sass variables (Gutenberg breakpoints, admin sidebar)
-mixins/          Sass mixins
+main.scss            Front-end entry point (forwards vars, base, helpers)
+gutenberg.scss       Block editor entry point
+admin-all.scss       Admin-wide entry point
+admin-fields.scss    Editable-fields admin entry point
+
+base/                Element defaults (admin-bar, fonts)
+helpers/             Utility classes (javascript-helpers, what-input)
+vars/                Sass variables (Gutenberg breakpoints, admin sidebar)
+mixins/              Sass mixins
 ```
 
-Each folder has an `_index.scss` that forwards its partials. The top-level `_index.scss` forwards `vars`, `base`, and `helpers` — `mixins/` is opt-in via explicit `@use` since mixins emit no CSS until included.
+Each folder has an `_index.scss` that forwards its partials. `main.scss` forwards `vars`, `base`, and `helpers` — `mixins/` is opt-in via explicit `@use` since mixins emit no CSS until included.
 
 ## Develop
 

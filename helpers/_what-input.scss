@@ -1,0 +1,8 @@
+// Hide outlines on focused elements via “what-input” plugin
+// https://github.com/ten1seven/what-input
+[data-whatintent="mouse"],
+[data-whatintent="touch"] {
+  *:focus {
+    outline: none;
+  }
+}

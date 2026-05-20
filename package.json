@@ -1,7 +1,7 @@
 {
   "name": "@threespot/wp-base-styles",
   "version": "0.1.0",
-  "description": "Sass partials for default WordPress blocks and common styles used across Threespot WP projects.",
+  "description": "Sass entry points and partials for front-end, admin, and Gutenberg styles used across Threespot WP projects.",
   "private": true,
   "repository": {
     "type": "git",

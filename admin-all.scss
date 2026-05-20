@@ -1,0 +1,52 @@
+// Custom WP admin bar styles
+// NOTE: Since we’re overriding the default min-width/max-width mixins in
+
+// Force all WP menu icons to be grayscale since
+// some plugins use color icons which look bad.
+#adminmenu .wp-menu-image img {
+  display: block;
+  filter: brightness(1) grayscale(1);// adjust brightness as needed
+  height: 100%;// for very tall icons
+  margin-inline: auto;
+  object-fit: contain;
+}
+
+// Login modal window in admin
+#wp-auth-check-wrap {
+  #wp-auth-check {
+    padding-top: 0 !important;
+  }
+
+  #wp-auth-check-form iframe {
+    height: 100% !important;
+  }
+
+  .wp-auth-check-close {
+    z-index: 10;
+  }
+}
+
+// Pantheon HUD plugin icon
+#wpadminbar .ab-item img {
+  &[src*="/pantheon-hud/"] {
+    height: auto !important;
+    width: 26px !important;
+  }
+}
+
+// Hide the “Give FileBird a review” notice
+.notice-success.is-dismissible.filebird-notice {
+  display: none !important;
+}
+
+// Hide WP Activity Log Viewer promos
+#wsal-navbar,
+.wsal-persistent-cta {
+  display: none !important;
+}
+
+// Hide ACF Pro upgrade promos
+.acf-nav-upgrade-wrap,
+#tmpl-acf-field-group-pro-features {
+  display: none !important;
+}

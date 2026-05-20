@@ -1,0 +1,108 @@
+// Custom WP admin styles for pages that have editable fields
+
+// Apply default font-family to wysiwyg fields
+#tinymce {
+  font-family: var(--fixme-font-family);
+}
+
+// Hide TinyMCE branding
+.mce-branding {
+  display: none !important;
+}
+
+// Custom ACF field styles
+.acf-field {
+  // Fix ACFE auto column layout
+  &.acf-field-acfe-column[data-columns="auto"] {
+    width: 100% !important;
+  }
+
+  &[data-columns="auto"] .acf-fields {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &.acf-field-taxonomy {
+    max-width: 300px;
+  }
+
+  &.auto-width {
+    width: auto !important;
+
+    .select2-selection__rendered {
+      padding-right: 10px !important;
+    }
+  }
+
+  // Fix ACF icon alignment
+  // .acf-taxonomy-field .acf-icon.small
+  .acf-icon {
+    &:before {
+      left: 50%;
+      margin: 0 !important;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  // Hide duplicate descriptions (not sure why this happens)
+  .description ~ .description {
+    display: none;
+  }
+}// end acf-field
+
+// Custom ACF wysiwyg field styles
+.acf-field-wysiwyg {
+  .acf-label {
+    margin-bottom: 0 !important;
+
+    & > label {
+      margin-bottom: 0 !important;
+    }
+  }
+
+  iframe {
+    height: unset;
+  }
+}// end acf-field-wysiwyg
+
+// Fix bug with collapsing ACF repeater rows when using columns
+#wpwrap .acf-row.-collapsed > .acf-fields > [data-columns]:has(.-collapsed-target) {
+  display: block !important;
+
+  & ~ [data-columns],
+  .acf-field:not(.-collapsed-target) {
+    display: none !important;
+  }
+}
+
+// Reset WP upgrade message on the ACF admin page
+.acf-admin-page.acf-admin-page {
+  .acf-notice.update-nag,
+  .notice.update-nag,
+  #lost-connection-notice.update-nag {
+    margin: 0 0 20px !important;
+    width: 100% !important;
+  }
+}
+
+// Fix to allow ACF tabs bottom border to show
+// Note: Duplicate the selector to override default styles
+.acf-tab-wrap.acf-tab-wrap {
+  overflow: visible;
+}
+
+// Fix zebra stripe styles on ACF Field Group page
+.acf-internal-post-type :where(th, td) {
+  background-color: inherit !important;
+}
+
+// Disable ACFE columns in sidebar
+.editor-sidebar .acfe-column-wrapper {
+  display: block !important;
+}
+
+.editor-sidebar .acf-field-acfe-column {
+  width: 100% !important;
+}
