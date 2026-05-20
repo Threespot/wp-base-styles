@@ -1,6 +1,6 @@
 # @threespot/wp-base-styles
 
-Sass partials for default WordPress blocks and common styles used across Threespot WP projects.
+Common Sass partials used across Threespot WordPress projects.
 
 ## Install
 
@@ -29,23 +29,25 @@ From a consumer's Sass entry point:
 @use '@threespot/wp-base-styles';
 
 // Or pick what you need
-@use '@threespot/wp-base-styles/default-blocks';
-@use '@threespot/wp-base-styles/helpers/no-wrap';
+@use '@threespot/wp-base-styles/base/fonts';
 
 // Sass variables (Gutenberg breakpoints, admin sidebar dimensions)
 @use '@threespot/wp-base-styles/vars' as *;
+
+// Sass mixins (no-wrap, etc.)
+@use '@threespot/wp-base-styles/mixins' as *;
 ```
 
 ## Structure
 
 ```
 base/            Element defaults (fonts, etc.)
-default-blocks/  Default WP core block styles
-helpers/         Reusable helper classes
+helpers/         Utility classes (no-js, etc.)
 vars/            Sass variables (Gutenberg breakpoints, admin sidebar)
+mixins/          Sass mixins
 ```
 
-Each folder has an `_index.scss` that forwards its partials. The top-level `_index.scss` forwards `base`, `default-blocks`, and `helpers` — `vars/` is opt-in via explicit `@use` since it outputs no CSS.
+Each folder has an `_index.scss` that forwards its partials. The top-level `_index.scss` forwards `vars`, `base`, and `helpers` — `mixins/` is opt-in via explicit `@use` since mixins emit no CSS until included.
 
 ## Develop
 
