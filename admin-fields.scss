@@ -10,6 +10,11 @@
   display: none !important;
 }
 
+// Hide width controls for default blocks
+[data-wp-component="ToolsPanelItem"]:has([role="radiogroup"] button[aria-label="25%"]) {
+  display: none !important;
+}
+
 // Custom ACF field styles
 .acf-field {
   // Fix ACFE auto column layout
