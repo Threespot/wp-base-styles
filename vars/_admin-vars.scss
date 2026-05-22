@@ -17,10 +17,3 @@ $break-medium: 782px;// adminbar goes big
 $break-small: 600px;
 $break-mobile: 480px;
 $break-zoomed-in: 280px;
-
-// Selectors to determine the editor layout
-// (used by _admin-media-query.scss and _layout-mixins.scss)
-$admin-selector-default: ':where(body:not(.is-fullscreen-mode) .edit-post-layout:has(.interface-interface-skeleton__sidebar:empty))';
-$admin-selector-default-sidebar: ':where(body:not(.is-fullscreen-mode) .edit-post-layout:has(.interface-interface-skeleton__sidebar:not(:empty)))';
-$admin-selector-fullscreen: ':where(body.is-fullscreen-mode .edit-post-layout:has(.interface-interface-skeleton__sidebar:empty))';
-$admin-selector-fullscreen-sidebar: ':where(body.is-fullscreen-mode .edit-post-layout:has(.interface-interface-skeleton__sidebar:not(:empty)))';
