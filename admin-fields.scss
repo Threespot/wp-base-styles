@@ -82,13 +82,35 @@
   }
 }
 
-// Reset WP upgrade message on the ACF admin page
-.acf-admin-page.acf-admin-page {
-  .acf-notice.update-nag,
-  .notice.update-nag,
-  #lost-connection-notice.update-nag {
-    margin: 0 0 20px !important;
-    width: 100% !important;
+// Make sidebar ACF field groups match default WP styles
+.acf-postbox {
+  .ui-sortable-handle {
+    color: #1e1e1e !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    line-height: 1.4 !important;
+    padding: 16px 24px 16px 16px !important;
+  }
+
+  .handle-actions {
+    margin-right: 6px;
+  }
+
+  .handlediv {
+    background-image: svg-url($svg-wp-chev-down, (fill: #000));
+    background-size: 24px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    transition: transform 180ms ease;
+
+    &[aria-expanded="true"] {
+      transform: scaleY(-1);
+    }
+  }
+
+  // Hide original icon
+  .toggle-indicator {
+    opacity: 0 !important;
   }
 }
 

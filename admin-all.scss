@@ -50,3 +50,13 @@
 #tmpl-acf-field-group-pro-features {
   display: none !important;
 }
+
+// Reset WP upgrade message on the ACF admin page
+.acf-admin-page.acf-admin-page {
+  .acf-notice.update-nag,
+  .notice.update-nag,
+  #lost-connection-notice.update-nag {
+    margin: 0 0 20px !important;
+    width: 100% !important;
+  }
+}
