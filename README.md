@@ -30,6 +30,7 @@ The package ships four standalone entry points, each meant to be compiled into a
 | `gutenberg.scss`     | Block editor                                       |
 | `admin-all.scss`     | All admin pages                                    |
 | `admin-fields.scss`  | Admin pages with editable fields (ACF, TinyMCE)    |
+| `login.scss`         | wp-login.php                                       |
 
 From a consumer's Sass entry point:
 
@@ -41,6 +42,7 @@ From a consumer's Sass entry point:
 @use '@threespot/wp-base-styles/gutenberg';
 @use '@threespot/wp-base-styles/admin-all';
 @use '@threespot/wp-base-styles/admin-fields';
+@use '@threespot/wp-base-styles/login';
 
 // Pick individual partials
 @use '@threespot/wp-base-styles/base/fonts';
@@ -59,6 +61,7 @@ main.scss            Front-end entry point (forwards vars, base, helpers)
 gutenberg.scss       Block editor entry point
 admin-all.scss       Admin-wide entry point
 admin-fields.scss    Editable-fields admin entry point
+login.scss           wp-login.php entry point
 
 base/                Element defaults (admin-bar, fonts)
 helpers/             Utility classes (javascript-helpers, what-input)
