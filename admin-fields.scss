@@ -1,4 +1,6 @@
 // Custom WP admin styles for pages that have editable fields
+@use "frontline-sass/src/functions/svg-url" as *;
+@use "vars" as *;
 
 // Apply default font-family to wysiwyg fields
 #tinymce {

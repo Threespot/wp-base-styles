@@ -14,15 +14,21 @@
   "scripts": {
     "lint:css": "NODE_NO_WARNINGS=1 stylelint \"**/*.scss\" && printf \"\\033[32m✓ No CSS lint errors\\033[0m\\n\"",
     "lint:css:fix": "NODE_NO_WARNINGS=1 stylelint \"**/*.scss\" --fix && printf \"\\033[32m✓ CSS lint fixes applied\\033[0m\\n\"",
+    "test:sass": "sass --no-source-map --load-path=node_modules main.scss:tmp/sass-test/main.css gutenberg.scss:tmp/sass-test/gutenberg.css admin-all.scss:tmp/sass-test/admin-all.css admin-fields.scss:tmp/sass-test/admin-fields.css login.scss:tmp/sass-test/login.css && printf \"\\033[32m✓ All Sass entry points compile\\033[0m\\n\"",
     "prepare": "husky"
   },
   "lint-staged": {
-    "*.scss": "stylelint"
+    "*.scss": [
+      "stylelint",
+      "bash -c 'npm run test:sass'"
+    ]
   },
   "devDependencies": {
+    "frontline-sass": "^5.1.6",
     "husky": "^9.1.7",
     "lint-staged": "^15.5.2",
     "postcss-scss": "^4.0.9",
+    "sass": "^1.99.0",
     "stylelint": "^17.11.0",
     "stylelint-scss": "^7.1.1"
   }
