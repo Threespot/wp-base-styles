@@ -41,7 +41,8 @@
 
 // Hide WP Activity Log Viewer promos
 #wsal-navbar,
-.wsal-persistent-cta {
+.wsal-persistent-cta,
+[data-dismiss-action="dismiss_melapress_survey"] {
   display: none !important;
 }
 
